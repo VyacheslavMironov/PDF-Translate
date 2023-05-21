@@ -13,6 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [\App\Http\Controllers\ViewController::class, 'index'])
+->name('index');
+
+Route::get('/progress', [\App\Http\Controllers\ViewController::class, 'progress'])
+->name('progress');
+
+Route::get('/success', [\App\Http\Controllers\ViewController::class, 'success'])
+->name('success');
+
+Route::get('/error', [\App\Http\Controllers\ViewController::class, 'error'])
+->name('error');
+
+
+Route::post('/form-data', [\App\Http\Controllers\PostFormController::class, 'formData'])
+->name('form.data');
